@@ -1,3 +1,8 @@
+import { httpInterceptorProviders } from './shared/interceptors/index';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,9 +15,15 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    CoreModule,
+    AuthModule,
+    UsersModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
