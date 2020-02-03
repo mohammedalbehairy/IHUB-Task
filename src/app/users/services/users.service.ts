@@ -12,6 +12,10 @@ export class UsersService {
     return this.http.get('users');
   }
 
+  public changePassword(body) {
+    return this.http.put('users/', body);
+  }
+
   public delete(id: string) {
     return this.http.delete(`users/${id}`);
   }

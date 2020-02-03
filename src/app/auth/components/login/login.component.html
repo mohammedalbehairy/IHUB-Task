@@ -7,10 +7,17 @@
           <div class="form-group">
             <label for="username">Username</label>
             <input class="form-control" type="text" formControlName="username">
+            <span *ngIf="username.touched && username.invalid" class="custom-error alert alert-danger">
+              <span *ngIf="username.errors.required">Please enter user name</span>
+            </span>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input class="form-control" type="password" formControlName="password">
+            <span *ngIf="password.touched && password.invalid" class="custom-error alert alert-danger">
+              <span *ngIf="password.errors.required">Please enter Password</span>
+              <span *ngIf="password.errors.minlength">password must be more than 5 character</span>
+            </span>
           </div>
           <div class="form-group">
             <button class="btn btn-primary" type="submit">Login </button>

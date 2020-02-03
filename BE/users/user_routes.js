@@ -13,6 +13,22 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+// change password of user
+router.put('/', async (req, res, next) => {
+  try {
+
+    userService.validateChangePassword(req.body);
+    await userService.test(req.user._id, req.body);
+    // await userService.changePassword(req.user._id, body);
+
+    return res.status(200).send({
+      message: 'password updated successfully'
+    });
+  } catch (e) {
+    return next(e)
+  }
+});
+
 // delete user
 router.delete('/:id', async (req, res, next) => {
   try {
