@@ -1,1 +1,20 @@
-<p>home works!</p>
+<br>
+<h2 class="text-center">Hi , {{username}}</h2>
+<h5 class="text-center">You're logged in with Angular 8!!</h5>
+<h4 class="text-center">All registered users:</h4>
+
+
+<br>
+
+<div class="card text-center custom-margin" *ngFor="let user of users">
+  <div class="card-header">
+    User Name : {{user.username}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{user.firstname}} {{user.lastname}}</h5>
+  </div>
+  <div class="card-footer text-muted">
+    <button (click)="deleteUser(user._id)" class="btn btn-danger" *ngIf="username != user.username">Delete</button>
+    <button class="btn btn-info" *ngIf="username == user.username" disabled>It's Me</button>
+  </div>
+</div>
